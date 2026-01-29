@@ -1,0 +1,8 @@
+services:
+  handson-004:
+    build: ./
+    ports:
+      - 5004:5000
+    volumes:
+      - ./:/app/
+    privileged: true

@@ -1,0 +1,1 @@
+Open the .E01 in autopsy as "disk image" file, then go to vol5 > $RECYCLE.BIN > S-1...1001 (5) and read $R0ZR5EW.txt

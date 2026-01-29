@@ -1,0 +1,5 @@
+services:
+  handson-000:
+    build: ./
+    ports:
+      - 35000:5000

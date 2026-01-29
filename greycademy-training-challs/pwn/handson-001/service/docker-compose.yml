@@ -1,0 +1,6 @@
+services:
+  handson-001:
+    build: ./
+    ports:
+      - 35001:5000
+    privileged: true
