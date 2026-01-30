@@ -29,7 +29,7 @@ From my rounds during training I noticed quite a few people got stuck at the `st
 
 > Why is it that entering (whatever gibberish the second argument is) as my input doesn't work, even though the program is literally comparing them for equality?
 
-The key lines in this line:
+The key lies in this line:
 
 ```c
     sub_1184(s);
@@ -99,7 +99,7 @@ Cut to the chase, `dword_4038` is just `1` (where dividing by 1 does nothing), a
 
 ![Simpler decompilation output](images/5.png)
 
-Either way, the former decompilation can be "derived" from the former decompilation. I don't think you can directly edit the IDA output, but what I sometimes do is to literally paste the output into an editor and clean it up from there. So with
+Either way, the latter decompilation can be "derived" from the former decompilation. I don't think you can directly edit the IDA output, but what I sometimes do is to literally paste the output into an editor and clean it up from there. So with
 
 ```c
     tmp = (_BYTE *)(input / 1 + i);

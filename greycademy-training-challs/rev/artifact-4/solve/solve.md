@@ -208,9 +208,9 @@ New opcode.
 
 A bunch of "recursive searching" going on, but luckily the hint provided cuts some of our troubles.
 
-If you really want to work it out what `0` does, what I would do is to try to compare a "before and after" or some arbitrary program state:
+If you really want to work it out what `0` does, what I would do is to try to compare a "before and after" of some arbitrary program state:
 
-(before)
+*(before)*
 
 ```
 F = 1234
@@ -225,7 +225,7 @@ F -> [1234]
       ....
 ```
 
-(after)
+*(after)*
 
 ```
 F = 1233
@@ -244,7 +244,7 @@ Then we try to build some intuition for this operation. In short, this is how "p
 
 (I did not manage to cover the entire stack section in the slides for some groups, hence this artifact was largely skipped over.)
 
-Going back to our opcode `8`, we are executing 2 "sub-instructions" at the same time: `push I; mov I, y`. Or to concretize things, `push rip, mov rip, 0` (since we are executing with `y=0`). If you have again read up on the stack section, this sort of looks like a `call 0`. Functions! Quite visibly delineated in our code listing, the first chunk of instructions belong to 1 function:
+Going back to our opcode `8`, we are executing 2 "sub-instructions" at the same time: `push I; mov I, y`. Or to concretise things, `push rip, mov rip, 0` (since we are executing with `y=0`). If you have again read up on the stack section, this sort of looks like a `call 0`. Functions! Quite visibly delineated in our code listing, the first chunk of instructions belong to 1 function:
 
 ```python
 _code = [
@@ -268,7 +268,7 @@ _code = [
 
 ---
 
-This is a good time to remind that our current goal is to figure out where exactly `A` is used and modified, and also what it represents to us. Already we can see some references to `A`; we can be impatient and look at the last reference
+This is a good time to remind ourselves that our current goal is to figure out where exactly `A` is used and modified, and also what it represents to us. Already we can see some references to `A`; we can be impatient and look at the last reference
 
 ```python
     (5, 'A', 'A', 'B'),
