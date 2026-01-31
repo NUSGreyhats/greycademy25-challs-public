@@ -1,0 +1,15 @@
+# gdb -q -x gdbscript
+
+gef config context.enable 0
+set print thread-events off
+set print address off
+file ./fast-fingers
+
+b * 0x00000000004025d9
+commands 1
+	silent
+	set $eax=PASSAGE[cursor_pos]
+	c
+end
+
+r

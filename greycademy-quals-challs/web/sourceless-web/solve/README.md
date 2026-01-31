@@ -1,0 +1,3 @@
+There are 3 parts to the flag. Part 1 is a comment in the HTML and part 2 is a comment in the CSS. Both parts can be found by simply doing inspect element.
+
+The third part is trickier, however. There is an obfuscated function in the javascript called `z` that takes in a base64 string, and performs some decoding and decryption on it to reveal the third part of the flag. To get this third part, either directly invoke the function in the browser's javascript console by doing `z("ycPOyJyVj92bweufwvDc2/rJ6dXS")` or by setting `clickCtr = 0xcafebabe - 1` then clicking the button to reveal the real flag part.

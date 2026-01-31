@@ -1,0 +1,1 @@
+tshark -r ping-pong.pcapng -Y "icmp.type == 8" -T fields -e data | xxd -r -p > flag.png

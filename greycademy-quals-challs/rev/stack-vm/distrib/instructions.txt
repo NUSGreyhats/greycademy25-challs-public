@@ -1,0 +1,155 @@
+input 0
+push 105
+xor
+push 14
+equal
+input 1
+push 108
+xor
+push 30
+equal
+input 2
+push 105
+xor
+push 12
+equal
+input 3
+push 107
+xor
+push 18
+equal
+input 4
+push 101
+xor
+push 30
+equal
+input 5
+push 119
+xor
+push 30
+equal
+input 6
+push 97
+xor
+push 62
+equal
+input 7
+push 116
+xor
+push 24
+equal
+input 8
+push 101
+xor
+push 85
+equal
+input 9
+push 114
+xor
+push 4
+equal
+input 10
+push 105
+xor
+push 12
+equal
+input 11
+push 108
+xor
+push 51
+equal
+input 12
+push 105
+xor
+push 26
+equal
+input 13
+push 107
+xor
+push 31
+equal
+input 14
+push 101
+xor
+push 81
+equal
+input 15
+push 119
+xor
+push 20
+equal
+input 16
+push 97
+xor
+push 10
+equal
+input 17
+push 116
+xor
+push 43
+equal
+input 18
+push 101
+xor
+push 17
+equal
+input 19
+push 114
+xor
+push 26
+equal
+input 20
+push 105
+xor
+push 93
+equal
+input 21
+push 108
+xor
+push 51
+equal
+input 22
+push 105
+xor
+push 15
+equal
+input 23
+push 107
+xor
+push 7
+equal
+input 24
+push 101
+xor
+push 86
+equal
+input 25
+push 119
+xor
+push 16
+equal
+input 26
+push 97
+xor
+push 18
+equal
+input 27
+push 116
+xor
+push 85
+equal
+input 28
+push 101
+xor
+push 68
+equal
+input 29
+push 114
+xor
+push 83
+equal
+input 30
+push 105
+xor
+push 20
+equal

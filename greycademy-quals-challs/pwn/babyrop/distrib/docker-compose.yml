@@ -1,0 +1,7 @@
+services:
+  challenge:
+    container_name: pwn-babyrop
+    build: .
+    privileged: true
+    ports:
+        - 30000:5000

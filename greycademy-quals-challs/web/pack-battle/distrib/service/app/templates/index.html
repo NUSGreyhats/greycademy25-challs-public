@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pack Battle</title>
+    <style>
+        body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 2rem; }
+        h1 { margin-bottom: 1rem; }
+        form { display: grid; gap: 1rem; max-width: 600px; }
+        fieldset { border: 1px solid #ddd; padding: 1rem; border-radius: 8px; }
+        legend { font-weight: 600; }
+        label { display: block; margin-bottom: .25rem; font-size: .95rem; }
+        input { width: 100%; padding: .5rem .6rem; border: 1px solid #ccc; border-radius: 6px; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        button { padding: .6rem 1rem; border-radius: 6px; border: 1px solid #444; background: #111; color: #fff; cursor: pointer; }
+        button:hover { filter: brightness(1.1); }
+    </style>
+    <script>
+        function validateForm(e) {
+            const nums = ['hp1','attack1','hp2','attack2'].map(id => Number(document.getElementById(id).value));
+            if (nums.some(n => !Number.isFinite(n) || n < 0)) {
+                e.preventDefault();
+                alert('Please enter non-negative numbers for HP and Attack for both monsters.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Pack Battle</h1>
+    <p>Enter details for two monsters and see which is stronger.</p>
+
+    <form method="POST" action="/battle" onsubmit="validateForm(event)">
+        <fieldset>
+            <legend>Monster 1</legend>
+            <label for="name1">Name</label>
+            <input type="text" id="name1" name="name1" placeholder="e.g., Fangor" required />
+            <div class="row">
+                <div>
+                    <label for="hp1">HP</label>
+                    <input type="number" id="hp1" name="hp1" min="0" step="1" required />
+                </div>
+                <div>
+                    <label for="attack1">Attack</label>
+                    <input type="number" id="attack1" name="attack1" min="0" step="1" required />
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Monster 2</legend>
+            <label for="name2">Name</label>
+            <input type="text" id="name2" name="name2" placeholder="e.g., Blazeclaw" required />
+            <div class="row">
+                <div>
+                    <label for="hp2">HP</label>
+                    <input type="number" id="hp2" name="hp2" min="0" step="1" required />
+                </div>
+                <div>
+                    <label for="attack2">Attack</label>
+                    <input type="number" id="attack2" name="attack2" min="0" step="1" required />
+                </div>
+            </div>
+        </fieldset>
+
+        <button type="submit">Battle!</button>
+    </form>
+</body>
+</html>

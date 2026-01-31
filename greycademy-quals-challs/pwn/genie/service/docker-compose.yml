@@ -1,0 +1,7 @@
+services:
+  challenge:
+    container_name: pwn-genie
+    build: .
+    privileged: true
+    ports:
+        - 30001:5000

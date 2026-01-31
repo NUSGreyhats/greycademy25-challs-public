@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-md-5 d-none d-md-block" style="background-image: url('{{ url_for("static", filename=item.image) }}'); background-size: cover; background-position: center;"></div>
+                    <div class="col-md-7">
+                        <div class="card-body p-5">
+                            <a href="{{ url_for('index') }}" class="text-decoration-none text-muted mb-3 d-inline-block">&larr; Back to Menu</a>
+                            <h2 class="font-playfair mb-1">{{ item.name }}</h2>
+                            <p class="text-success fw-bold mb-4">${{ "%.2f"|format(item.price) }}</p>
+                            
+                            <form action="{{ url_for('submit_order') }}" method="POST">
+                                <input type="hidden" name="item_name" value="{{ item.name }}">
+                                
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-uppercase small text-muted">Sweetness Level</label>
+                                    <div class="btn-group w-100" role="group">
+                                        {% for level in ['0%', '25%', '50%', '75%', '100%'] %}
+                                        <input type="radio" class="btn-check" name="sweetness" id="sweetness{{ loop.index }}" value="{{ level }}" {% if level == '50%' %}checked{% endif %} required>
+                                        <label class="btn btn-outline-success" for="sweetness{{ loop.index }}">{{ level }}</label>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-uppercase small text-muted">Milk Choice</label>
+                                    <select class="form-select" name="milk_type" required>
+                                        <option value="Whole Milk">Whole Milk</option>
+                                        <option value="Oat Milk">Oat Milk (+$0.50)</option>
+                                        <option value="Almond Milk">Almond Milk (+$0.50)</option>
+                                        <option value="Soy Milk">Soy Milk</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-uppercase small text-muted">Ice Level</label>
+                                    <div class="btn-group w-100" role="group">
+                                        {% for level in ['No Ice', 'Less Ice', 'Normal Ice'] %}
+                                        <input type="radio" class="btn-check" name="ice_level" id="ice{{ loop.index }}" value="{{ level }}" {% if level == 'Normal Ice' %}checked{% endif %} required>
+                                        <label class="btn btn-outline-success" for="ice{{ loop.index }}">{{ level }}</label>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-uppercase small text-muted">Toppings (Optional)</label>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        {% for topping in ['Red Bean', 'Mochi', 'Grass Jelly', 'Cheese Foam'] %}
+                                        <input type="checkbox" class="btn-check" name="toppings" id="topping{{ loop.index }}" value="{{ topping }}">
+                                        <label class="btn btn-outline-secondary rounded-pill" for="topping{{ loop.index }}">+ {{ topping }}</label>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-success btn-lg">Place Order</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

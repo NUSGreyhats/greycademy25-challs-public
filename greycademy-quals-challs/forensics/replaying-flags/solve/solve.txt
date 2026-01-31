@@ -1,0 +1,2 @@
+1. Use the premaster secret by opening wireshark on `capture.pcapng` and going to edit > preferences > protocols > tls and adding the keylog file
+2. scroll till the POST data to `ctfd.nusgreyhats.org` is see, and view the decrypted data to see flag :D

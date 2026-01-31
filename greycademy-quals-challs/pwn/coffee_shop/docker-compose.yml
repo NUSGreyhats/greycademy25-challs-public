@@ -1,0 +1,11 @@
+services:
+  challenge:
+    container_name: pwn-coffeeshop
+    build: service
+    privileged: true
+    ports:
+        - 30002:80
+    read_only: true
+    tmpfs:
+      - /usr/local/apache2/logs:rw,noexec,nosuid,size=10m,uid=82,gid=82,mode=755
+      - /run:rw,noexec,nosuid,size=1m

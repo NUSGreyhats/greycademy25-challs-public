@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "31003:8000"
+    environment:
+      - DATABASE=/data/matcha_shop.db
+    volumes:
+      - db_data:/data
+
+volumes:
+  db_data:

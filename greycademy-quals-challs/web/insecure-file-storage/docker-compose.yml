@@ -1,0 +1,6 @@
+services:
+  challenge:
+    container_name: web-insecure-file-storage
+    build: service
+    ports:
+        - 31000:5000

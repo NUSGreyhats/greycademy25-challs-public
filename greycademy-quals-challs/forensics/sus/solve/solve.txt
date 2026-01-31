@@ -1,0 +1,1 @@
+Use volatility to extract the code.exe binary from the memdump, then reverse it and XOR decode the ciphertext to get the flag.

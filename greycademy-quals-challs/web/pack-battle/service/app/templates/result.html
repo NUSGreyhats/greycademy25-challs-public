@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Battle Result</title>
+    <style>
+        body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 2rem; }
+        h1 { margin-bottom: 1rem; }
+        .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        a { display: inline-block; margin-top: 1rem; }
+        .error { color: #b00020; }
+        .winner { font-weight: 700; }
+        table { width: 100%; border-collapse: collapse; margin-top: .5rem; }
+        th, td { border: 1px solid #eee; padding: .5rem .6rem; text-align: left; }
+        caption { text-align: left; font-weight: 600; margin-bottom: .25rem; }
+    </style>
+</head>
+<body>
+    <h1>Battle Result</h1>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+        <p><a href="/">Go back</a></p>
+    {% else %}
+        <div class="grid">
+            <div class="card">
+                <h2>{{ m1.name }}</h2>
+                <table>
+                    <caption>Stats</caption>
+                    <tr><th>HP</th><td>{{ m1.hp }}</td></tr>
+                    <tr><th>Attack</th><td>{{ m1.attack }}</td></tr>
+                    <tr><th>Strength (HP × Attack)</th><td>{{ m1.strength }}</td></tr>
+                </table>
+            </div>
+            <div class="card">
+                <h2>{{ m2.name }}</h2>
+                <table>
+                    <caption>Stats</caption>
+                    <tr><th>HP</th><td>{{ m2.hp }}</td></tr>
+                    <tr><th>Attack</th><td>{{ m2.attack }}</td></tr>
+                    <tr><th>Strength (HP × Attack)</th><td>{{ m2.strength }}</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <p class="winner">Winner: {{ winner }}</p>
+        <p>{{ reason | safe }}</p>
+        <p><a href="/">Battle again</a></p>
+    {% endif %}
+</body>
+</html>

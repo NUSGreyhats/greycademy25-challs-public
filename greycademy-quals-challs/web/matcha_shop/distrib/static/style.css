@@ -1,0 +1,72 @@
+:root {
+    --matcha-green: #4a7c59;
+    --matcha-light: #e8f5e9;
+    --matcha-dark: #2d4a35;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+.text-success {
+    color: var(--matcha-green) !important;
+}
+
+.bg-success {
+    background-color: var(--matcha-green) !important;
+}
+
+.btn-success {
+    background-color: var(--matcha-green);
+    border-color: var(--matcha-green);
+}
+
+.btn-success:hover {
+    background-color: var(--matcha-dark);
+    border-color: var(--matcha-dark);
+}
+
+.btn-outline-success {
+    color: var(--matcha-green);
+    border-color: var(--matcha-green);
+}
+
+.btn-outline-success:hover, .btn-check:checked + .btn-outline-success {
+    background-color: var(--matcha-green);
+    border-color: var(--matcha-green);
+    color: white;
+}
+
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.navbar-brand {
+    letter-spacing: 0.5px;
+}
+
+.hero-section {
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: -1;
+}

@@ -1,0 +1,7 @@
+services:
+  blast_from_the_past:
+    container_name: pwn-moonlightfactory
+    build: ./service
+    privileged: true
+    ports:
+      - 33004:5000

@@ -1,0 +1,14 @@
+[project]
+name = "matcha-haven"
+version = "0.1.0"
+description = "Matcha Haven"
+readme = "README.md"
+authors = [
+    { name = "jro", email = "root@jro.sg" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.1.2",
+    "gunicorn>=23.0.0",
+    "requests>=2.32.5",
+]

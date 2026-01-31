@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debug Directory Lookup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+  <main class="mx-auto max-w-5xl px-4 py-10">
+    <div class="space-y-8 rounded-3xl border border-slate-200 bg-white/90 p-8 shadow-xl">
+      <header class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">Greycademy Directory</p>
+        <h1 class="text-3xl font-semibold text-slate-900">Trainers and authors</h1>
+        <p class="text-sm leading-relaxed text-slate-500">
+          Find your favourite Greycademy trainers and authors. Feel free to try the debug mode as well!
+        </p>
+      </header>
+
+      <form method="POST" class="flex flex-col gap-4 md:flex-row md:items-end">
+        <label class="flex-1 text-sm font-medium text-slate-500">
+          Username
+          <input type="text" id="username" name="username" placeholder="try jinkai" value="{{ search_term }}"
+            class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900"
+            required>
+        </label>
+
+        <div class="flex flex-col gap-2 text-sm">
+          <input type="hidden" name="debug_mode" id="debugModeInput" value="{{ 'true' if debug_enabled else 'false' }}">
+          <button type="button" id="debugToggle"
+            class="flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium uppercase tracking-widest text-slate-500 transition-colors"
+            data-enabled="{{ 'true' if debug_enabled else 'false' }}">
+            <span>Debug mode</span>
+            <span id="debugState" class="text-xs ml-2 font-semibold"></span>
+          </button>
+        </div>
+
+        <button type="submit"
+          class="w-full rounded-2xl border border-slate-900 bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-transparent hover:text-slate-900 md:w-auto">
+          Lookup
+        </button>
+      </form>
+
+      <div class="grid gap-6 lg:grid-cols-2">
+        <section class="space-y-3 rounded-2xl border border-slate-200 p-5">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-semibold text-slate-900">Lookup Results</h2>
+            {% if search_ran %}
+            <span class="text-xs uppercase tracking-widest text-slate-400">Results</span>
+            {% else %}
+            <span class="text-xs uppercase tracking-widest text-slate-400">Waiting</span>
+            {% endif %}
+          </div>
+
+          {% if not search_ran %}
+          <p class="text-sm text-slate-500">Use the form to preview how input lands in the database.</p>
+          <p class="text-xs uppercase tracking-widest text-slate-400">Tip: apostrophes go straight into the field.</p>
+          {% elif results %}
+          <ul class="space-y-3">
+            {% for row in results %}
+            <li class="rounded-2xl border border-slate-100 bg-slate-50 px-4 py-3">
+              <p class="text-base font-semibold text-slate-900">{{ row.username }}</p>
+              <p class="text-sm text-slate-500">{{ row.email }}</p>
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p class="text-sm text-slate-500">No accounts matched that filter.</p>
+          {% endif %}
+        </section>
+
+        <section id="debugPanel"
+          class="space-y-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-5 text-sm {% if not debug_enabled %}hidden{% endif %}">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-semibold text-slate-900">Debug Console</h2>
+            <span class="text-xs uppercase tracking-widest text-slate-400">Live output</span>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-widest text-slate-400">Rendered SQL</p>
+            <pre
+              class="mt-2 h-56 overflow-auto rounded-2xl border border-slate-200 bg-white px-4 py-3 text-xs text-slate-800">{{ current_query or "Submit the form or toggle debug mode to monitor queries..." }}</pre>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-widest text-slate-400">Raw database response</p>
+            {% if query_error %}
+            <pre
+              class="mt-2 h-56 overflow-auto rounded-2xl border border-red-300 bg-red-50 px-4 py-3 text-xs text-red-600">{{ query_error }}</pre>
+            {% elif raw_result %}
+            <pre
+              class="mt-2 h-56 overflow-auto rounded-2xl border border-slate-200 bg-white px-4 py-3 text-xs text-slate-800">{{ raw_result }}</pre>
+            {% else %}
+            <pre
+              class="mt-2 h-56 overflow-auto rounded-2xl border border-slate-200 bg-white px-4 py-3 text-xs text-slate-400">(no rows / not executed yet)</pre>
+            {% endif %}
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById("debugToggle");
+      if (!toggle) return;
+      const stateLabel = document.getElementById("debugState");
+      const input = document.getElementById("debugModeInput");
+      const panel = document.getElementById("debugPanel");
+
+      const setState = (enabled) => {
+        toggle.dataset.enabled = enabled ? "true" : "false";
+        input.value = enabled ? "true" : "false";
+        stateLabel.textContent = enabled ? "ON" : "OFF";
+
+        toggle.classList.toggle("bg-slate-900", enabled);
+        toggle.classList.toggle("text-white", enabled);
+        toggle.classList.toggle("border-slate-900", enabled);
+        toggle.classList.toggle("text-slate-500", !enabled);
+        toggle.classList.toggle("border-slate-200", !enabled);
+
+        if (panel) {
+          panel.classList.toggle("hidden", !enabled);
+        }
+      };
+
+      setState(toggle.dataset.enabled === "true");
+
+      toggle.addEventListener("click", () => {
+        const enabled = toggle.dataset.enabled !== "true";
+        setState(enabled);
+      });
+    })();
+  </script>
+</body>
+
+</html>
