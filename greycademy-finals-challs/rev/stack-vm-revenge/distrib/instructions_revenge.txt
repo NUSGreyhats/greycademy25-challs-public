@@ -1,0 +1,1629 @@
+swapswap
+swapswap
+swapswap
+input 0
+push 66
+xor
+swapswap
+push 37
+equal
+push 66
+swapswap
+push 69
+add
+push 34
+push 86
+add
+push 86
+push 30
+swapswap
+sub
+push 1
+push 72
+swapswap
+sub
+push 11
+swapswap
+push 30
+xor
+push 33
+push 97
+swapswap
+swapswap
+swapswap
+swapswap
+xor
+push 10
+push 62
+swapswap
+xor
+push 61
+push 3
+xor
+input 1
+push 4
+add
+push 118
+equal
+push 73
+push 86
+sub
+swapswap
+swapswap
+swapswap
+push 67
+push 22
+sub
+swapswap
+swapswap
+swapswap
+swapswap
+push 64
+push 81
+swapswap
+xor
+swapswap
+push 5
+swapswap
+swapswap
+push 7
+swapswap
+xor
+push 34
+push 55
+xor
+push 22
+swapswap
+push 31
+swapswap
+xor
+swapswap
+push 90
+push 23
+xor
+input 2
+push 7
+sub
+swapswap
+push 94
+equal
+swapswap
+push 94
+push 50
+add
+push 95
+push 17
+swapswap
+swapswap
+add
+push 10
+push 60
+swapswap
+add
+push 11
+push 61
+swapswap
+swapswap
+swapswap
+swapswap
+add
+push 77
+push 34
+xor
+input 3
+swapswap
+swapswap
+push 66
+swapswap
+xor
+push 59
+equal
+swapswap
+push 74
+swapswap
+push 61
+add
+swapswap
+swapswap
+push 49
+push 25
+swapswap
+add
+push 84
+push 79
+add
+push 57
+push 13
+swapswap
+sub
+push 95
+push 77
+sub
+push 87
+push 16
+xor
+swapswap
+swapswap
+push 95
+swapswap
+push 79
+swapswap
+xor
+push 17
+push 94
+xor
+push 99
+push 19
+swapswap
+swapswap
+swapswap
+xor
+push 48
+swapswap
+push 36
+swapswap
+xor
+input 4
+swapswap
+swapswap
+push 4
+swapswap
+add
+push 127
+equal
+push 39
+swapswap
+push 78
+add
+swapswap
+swapswap
+push 34
+swapswap
+push 39
+swapswap
+add
+push 26
+push 29
+xor
+swapswap
+swapswap
+push 88
+push 85
+swapswap
+swapswap
+xor
+push 51
+push 1
+xor
+swapswap
+push 92
+push 18
+xor
+swapswap
+push 22
+swapswap
+push 9
+swapswap
+xor
+input 5
+push 7
+swapswap
+sub
+swapswap
+push 104
+equal
+push 59
+swapswap
+push 82
+swapswap
+add
+push 1
+push 34
+add
+push 13
+swapswap
+swapswap
+push 92
+add
+swapswap
+push 93
+push 31
+swapswap
+add
+swapswap
+push 40
+push 59
+sub
+push 27
+push 23
+sub
+swapswap
+swapswap
+push 94
+push 25
+sub
+swapswap
+push 97
+swapswap
+swapswap
+push 96
+sub
+push 35
+push 95
+sub
+push 45
+push 19
+xor
+push 44
+swapswap
+push 34
+xor
+swapswap
+swapswap
+push 26
+push 44
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+xor
+push 79
+push 93
+xor
+input 6
+swapswap
+swapswap
+push 66
+swapswap
+xor
+push 44
+equal
+push 12
+push 89
+add
+push 70
+push 30
+add
+push 69
+swapswap
+swapswap
+push 1
+swapswap
+swapswap
+add
+push 16
+push 42
+add
+swapswap
+swapswap
+push 31
+push 26
+sub
+push 84
+push 14
+sub
+push 95
+push 43
+swapswap
+swapswap
+xor
+push 71
+push 70
+swapswap
+swapswap
+xor
+swapswap
+swapswap
+push 25
+swapswap
+push 92
+swapswap
+swapswap
+xor
+swapswap
+swapswap
+swapswap
+push 65
+push 86
+swapswap
+swapswap
+xor
+push 64
+push 63
+xor
+input 7
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+push 4
+add
+push 105
+equal
+push 49
+push 43
+add
+swapswap
+swapswap
+push 10
+swapswap
+push 4
+swapswap
+swapswap
+add
+push 79
+swapswap
+push 2
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+add
+swapswap
+push 17
+push 98
+add
+push 28
+push 71
+sub
+swapswap
+push 76
+push 63
+swapswap
+swapswap
+sub
+swapswap
+swapswap
+push 61
+swapswap
+push 1
+sub
+push 60
+push 48
+sub
+push 61
+swapswap
+push 2
+sub
+push 10
+push 44
+swapswap
+swapswap
+swapswap
+xor
+push 83
+push 60
+xor
+push 70
+push 52
+xor
+push 49
+swapswap
+push 75
+xor
+input 8
+push 7
+swapswap
+sub
+push 88
+swapswap
+equal
+swapswap
+push 66
+swapswap
+push 42
+swapswap
+add
+push 95
+push 69
+add
+push 17
+swapswap
+swapswap
+push 38
+swapswap
+add
+push 5
+push 69
+add
+push 75
+swapswap
+push 22
+add
+push 52
+swapswap
+push 45
+sub
+push 44
+push 16
+xor
+push 78
+push 28
+xor
+swapswap
+swapswap
+swapswap
+push 4
+swapswap
+push 4
+xor
+input 9
+push 66
+xor
+swapswap
+push 54
+equal
+push 91
+push 48
+add
+swapswap
+push 45
+push 68
+add
+push 64
+push 49
+add
+swapswap
+swapswap
+push 40
+push 7
+add
+push 20
+push 98
+sub
+push 26
+push 29
+sub
+swapswap
+push 5
+swapswap
+swapswap
+push 91
+sub
+push 63
+swapswap
+push 5
+sub
+push 44
+push 26
+swapswap
+xor
+push 41
+swapswap
+push 18
+swapswap
+xor
+push 78
+push 37
+xor
+push 86
+push 65
+xor
+swapswap
+input 10
+swapswap
+push 4
+add
+push 123
+equal
+swapswap
+swapswap
+push 76
+swapswap
+swapswap
+swapswap
+swapswap
+push 52
+add
+swapswap
+push 40
+push 14
+sub
+swapswap
+push 77
+push 42
+sub
+push 51
+swapswap
+push 77
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+xor
+push 1
+swapswap
+push 51
+xor
+swapswap
+push 78
+push 93
+xor
+swapswap
+swapswap
+push 85
+push 86
+swapswap
+xor
+push 96
+push 94
+swapswap
+xor
+swapswap
+input 11
+swapswap
+swapswap
+push 7
+swapswap
+sub
+push 41
+swapswap
+swapswap
+equal
+push 61
+swapswap
+push 9
+swapswap
+swapswap
+xor
+push 49
+swapswap
+swapswap
+push 84
+xor
+swapswap
+swapswap
+push 44
+swapswap
+swapswap
+swapswap
+push 30
+xor
+swapswap
+push 26
+swapswap
+swapswap
+swapswap
+push 31
+swapswap
+xor
+input 12
+swapswap
+push 66
+swapswap
+swapswap
+xor
+push 29
+swapswap
+swapswap
+swapswap
+equal
+push 68
+swapswap
+push 85
+swapswap
+add
+swapswap
+push 66
+swapswap
+push 28
+swapswap
+add
+swapswap
+push 75
+swapswap
+swapswap
+push 62
+add
+input 13
+swapswap
+push 4
+swapswap
+add
+swapswap
+push 120
+swapswap
+equal
+push 66
+swapswap
+push 8
+add
+swapswap
+push 78
+push 90
+add
+push 5
+push 29
+swapswap
+add
+push 6
+push 43
+add
+push 24
+swapswap
+push 8
+add
+swapswap
+push 45
+swapswap
+swapswap
+push 25
+sub
+swapswap
+swapswap
+push 22
+swapswap
+swapswap
+swapswap
+push 22
+sub
+push 56
+push 86
+xor
+push 68
+swapswap
+push 87
+swapswap
+swapswap
+xor
+swapswap
+push 54
+swapswap
+push 36
+swapswap
+xor
+push 85
+push 68
+xor
+swapswap
+swapswap
+push 62
+push 75
+swapswap
+xor
+input 14
+push 7
+sub
+push 97
+equal
+push 72
+swapswap
+push 23
+add
+push 37
+push 23
+add
+swapswap
+push 26
+push 42
+swapswap
+swapswap
+add
+push 59
+push 40
+add
+swapswap
+swapswap
+push 33
+push 99
+sub
+push 76
+push 13
+swapswap
+xor
+push 33
+push 29
+swapswap
+xor
+push 69
+push 60
+xor
+input 15
+swapswap
+push 66
+swapswap
+xor
+push 48
+equal
+swapswap
+push 30
+push 94
+add
+push 43
+push 23
+add
+push 77
+push 12
+add
+push 70
+swapswap
+swapswap
+push 41
+add
+swapswap
+push 41
+push 37
+sub
+swapswap
+swapswap
+swapswap
+push 44
+push 11
+sub
+push 64
+push 33
+sub
+push 23
+push 36
+sub
+push 12
+push 25
+xor
+push 5
+push 26
+xor
+input 16
+swapswap
+swapswap
+push 4
+swapswap
+add
+push 55
+swapswap
+equal
+swapswap
+swapswap
+swapswap
+swapswap
+push 57
+swapswap
+push 27
+swapswap
+add
+swapswap
+push 37
+push 31
+add
+push 24
+swapswap
+push 99
+add
+push 54
+swapswap
+swapswap
+push 25
+add
+push 82
+push 19
+add
+swapswap
+push 17
+swapswap
+push 6
+sub
+push 90
+push 39
+swapswap
+swapswap
+sub
+push 98
+push 82
+sub
+push 91
+swapswap
+push 44
+xor
+swapswap
+input 17
+push 7
+sub
+push 44
+swapswap
+equal
+push 70
+swapswap
+push 80
+add
+push 54
+swapswap
+push 54
+add
+push 51
+push 45
+swapswap
+swapswap
+add
+push 79
+swapswap
+swapswap
+push 50
+add
+swapswap
+swapswap
+push 68
+push 75
+sub
+swapswap
+push 90
+push 44
+sub
+input 18
+swapswap
+push 66
+swapswap
+swapswap
+xor
+push 29
+equal
+push 15
+push 51
+swapswap
+add
+push 100
+swapswap
+push 57
+add
+push 63
+push 64
+add
+push 2
+push 65
+swapswap
+sub
+push 47
+swapswap
+swapswap
+push 72
+sub
+push 73
+push 10
+sub
+push 70
+push 74
+sub
+swapswap
+push 9
+push 46
+xor
+push 90
+push 41
+xor
+swapswap
+input 19
+swapswap
+swapswap
+push 4
+add
+swapswap
+push 106
+equal
+push 21
+push 60
+add
+push 47
+swapswap
+push 38
+swapswap
+add
+push 72
+push 66
+add
+push 51
+swapswap
+push 12
+sub
+push 39
+push 19
+swapswap
+swapswap
+sub
+push 13
+push 16
+sub
+push 10
+swapswap
+push 68
+xor
+push 42
+push 86
+xor
+swapswap
+swapswap
+input 20
+push 7
+sub
+push 41
+equal
+push 89
+push 67
+add
+swapswap
+push 79
+push 51
+add
+push 24
+swapswap
+push 44
+add
+swapswap
+push 82
+push 23
+add
+swapswap
+swapswap
+push 42
+swapswap
+push 72
+swapswap
+sub
+swapswap
+push 16
+push 7
+sub
+push 69
+push 19
+sub
+push 43
+push 88
+swapswap
+xor
+input 21
+push 66
+swapswap
+swapswap
+xor
+swapswap
+push 55
+equal
+push 74
+push 89
+swapswap
+add
+push 85
+push 63
+add
+push 91
+push 94
+swapswap
+add
+push 15
+swapswap
+push 99
+sub
+push 30
+push 38
+swapswap
+sub
+push 90
+swapswap
+push 32
+xor
+swapswap
+swapswap
+swapswap
+push 20
+push 54
+swapswap
+xor
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+push 21
+push 35
+xor
+swapswap
+swapswap
+input 22
+swapswap
+push 4
+swapswap
+add
+push 118
+equal
+push 49
+push 58
+add
+swapswap
+push 95
+swapswap
+push 44
+swapswap
+add
+push 24
+swapswap
+push 75
+add
+push 48
+swapswap
+push 18
+add
+push 26
+swapswap
+push 69
+add
+push 71
+push 1
+xor
+input 23
+push 7
+swapswap
+sub
+push 88
+swapswap
+equal
+swapswap
+push 80
+push 2
+swapswap
+add
+push 35
+push 80
+add
+push 7
+push 56
+add
+push 57
+swapswap
+swapswap
+push 96
+xor
+push 94
+swapswap
+push 52
+swapswap
+swapswap
+xor
+swapswap
+push 32
+push 62
+xor
+input 24
+push 66
+xor
+swapswap
+push 36
+swapswap
+equal
+push 31
+swapswap
+swapswap
+swapswap
+swapswap
+push 75
+add
+push 93
+push 47
+add
+push 14
+swapswap
+push 10
+add
+swapswap
+push 42
+swapswap
+push 89
+swapswap
+add
+swapswap
+push 45
+swapswap
+swapswap
+push 100
+add
+swapswap
+push 5
+push 51
+sub
+push 93
+push 33
+swapswap
+sub
+push 78
+swapswap
+push 91
+sub
+swapswap
+push 16
+push 53
+sub
+push 21
+swapswap
+push 84
+xor
+swapswap
+input 25
+push 4
+swapswap
+add
+swapswap
+push 53
+equal
+push 13
+swapswap
+push 13
+add
+push 67
+push 90
+sub
+swapswap
+push 50
+push 79
+sub
+swapswap
+push 95
+push 87
+swapswap
+sub
+push 15
+push 80
+xor
+input 26
+push 7
+swapswap
+sub
+push 111
+swapswap
+swapswap
+swapswap
+equal
+push 6
+push 18
+add
+swapswap
+push 83
+swapswap
+swapswap
+push 56
+swapswap
+add
+push 83
+swapswap
+push 47
+add
+swapswap
+push 77
+push 85
+sub
+push 33
+push 36
+xor
+swapswap
+push 74
+push 4
+xor
+swapswap
+swapswap
+push 23
+push 62
+xor
+input 27
+swapswap
+push 66
+xor
+push 39
+equal
+push 5
+push 71
+add
+push 21
+push 74
+swapswap
+add
+push 8
+swapswap
+push 64
+add
+push 84
+push 53
+swapswap
+add
+swapswap
+push 34
+swapswap
+push 50
+swapswap
+sub
+push 55
+push 6
+sub
+push 13
+push 96
+swapswap
+sub
+push 93
+swapswap
+push 64
+sub
+push 62
+swapswap
+push 19
+swapswap
+swapswap
+xor
+input 28
+push 4
+add
+push 99
+equal
+push 53
+swapswap
+push 66
+add
+swapswap
+push 64
+push 69
+add
+push 48
+push 55
+add
+push 64
+swapswap
+swapswap
+push 64
+swapswap
+add
+push 55
+push 59
+sub
+push 62
+push 5
+sub
+push 36
+push 15
+xor
+push 78
+push 28
+swapswap
+xor
+push 63
+push 11
+swapswap
+xor
+push 21
+push 92
+xor
+input 29
+push 7
+sub
+push 108
+equal
+push 33
+swapswap
+push 46
+swapswap
+swapswap
+swapswap
+swapswap
+swapswap
+add
+push 53
+push 40
+add
+push 72
+push 90
+swapswap
+add
+push 81
+push 76
+add
+swapswap
+push 40
+push 14
+swapswap
+sub
+push 21
+push 32
+sub
+swapswap
+push 78
+push 13
+swapswap
+xor
+push 97
+push 15
+xor
+swapswap
+swapswap
+swapswap
+input 30
+swapswap
+swapswap
+push 66
+xor
+push 115
+swapswap
+equal
+push 62
+push 25
+swapswap
+swapswap
+add
+push 43
+swapswap
+swapswap
+push 94
+sub
+swapswap
+swapswap
+push 14
+push 18
+swapswap
+xor
+swapswap
+input 31
+swapswap
+swapswap
+push 4
+add
+push 124
+equal
+push 55
+swapswap
+push 14
+xor
+swapswap
+push 71
+push 20
+swapswap
+swapswap
+xor
+push 85
+push 33
+xor
+swapswap
+swapswap
+swapswap
+push 99
+push 49
+swapswap
+xor
+swapswap
+input 32
+push 7
+swapswap
+sub
+push 88
+swapswap
+equal
+swapswap
+push 73
+push 41
+add
+push 77
+swapswap
+swapswap
+swapswap
+push 23
+add
+push 22
+push 66
+swapswap
+add
+push 4
+swapswap
+swapswap
+push 4
+add
+swapswap
+swapswap
+push 49
+push 80
+sub
+push 86
+swapswap
+swapswap
+push 86
+xor
+push 18
+swapswap
+push 9
+xor
+swapswap
+swapswap
+push 86
+swapswap
+swapswap
+push 10
+swapswap
+swapswap
+xor
+input 33
+push 66
+swapswap
+xor
+push 49
+equal
+swapswap
+push 87
+push 18
+add
+push 80
+push 82
+sub
+swapswap
+swapswap
+push 66
+push 98
+xor
+swapswap
+swapswap
+push 21
+push 49
+xor
+swapswap
+push 54
+push 46
+xor
+swapswap
+push 75
+swapswap
+swapswap
+push 43
+xor
+input 34
+push 4
+add
+swapswap
+swapswap
+push 55
+equal
+push 14
+push 75
+add
+push 99
+swapswap
+swapswap
+push 17
+swapswap
+add
+push 78
+swapswap
+swapswap
+push 48
+sub
+swapswap
+push 59
+swapswap
+push 98
+xor
+push 57
+push 16
+xor
+push 19
+swapswap
+push 49
+xor
+input 35
+swapswap
+swapswap
+push 7
+sub
+swapswap
+swapswap
+push 111
+swapswap
+equal
+push 29
+push 78
+swapswap
+swapswap
+add
+push 76
+push 38
+add
+push 37
+swapswap
+swapswap
+push 8
+xor
+push 12
+push 20
+xor
+swapswap
+swapswap
+swapswap
+push 62
+swapswap
+swapswap
+swapswap
+push 47
+xor
+swapswap
+push 3
+push 57
+swapswap
+xor
+push 38
+swapswap
+push 89
+xor
+swapswap
+swapswap
+input 36
+push 66
+xor
+push 39
+equal
+push 23
+push 85
+sub
+swapswap
+push 69
+push 0
+sub
+push 99
+push 28
+swapswap
+sub
+push 49
+swapswap
+push 100
+swapswap
+xor
+swapswap
+push 18
+push 18
+xor
+push 23
+push 41
+swapswap
+xor
+input 37
+swapswap
+push 4
+add
+push 114
+equal
+push 84
+push 32
+sub
+push 44
+push 64
+xor
+swapswap
+push 32
+push 60
+swapswap
+xor
+swapswap
+push 49
+push 60
+xor
+input 38
+push 7
+sub
+push 118
+equal
+push 51
+swapswap
+push 15
+swapswap
+sub
+swapswap
+push 19
+swapswap
+push 63
+swapswap
+sub
+push 69
+swapswap
+push 73
+swapswap
+swapswap
+sub
+push 32
+swapswap
+swapswap
+swapswap
+push 21
+xor

@@ -1,0 +1,1 @@
+int rc4_crypt(char *key, size_t keylen, char *plaintext, unsigned char *ciphertext, size_t length);

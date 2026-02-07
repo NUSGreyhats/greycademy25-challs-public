@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Name ___</title>
+    <style>
+        :root {
+            --bg: #f7f7fb;
+            --card: #fff;
+            --accent: #2563eb;
+            --muted: #6b7280;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 100%);
+        }
+
+        .wrap {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            gap: .75rem;
+        }
+
+        .panel {
+            width: 100%;
+            max-width: 540px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.25rem;
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 0 0 1rem 0;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+            border: 1px solid rgba(99, 102, 241, 0.06);
+        }
+
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            margin: 0 auto 0.75rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: .25rem;
+        }
+
+        .role {
+            color: var(--muted);
+            font-size: .9rem;
+            margin-bottom: .75rem;
+        }
+
+        .meta {
+            font-size: .85rem;
+            color: var(--muted);
+        }
+
+        .controls {
+            margin-top: 1rem;
+            display: flex;
+            gap: .5rem;
+            justify-content: center;
+        }
+
+        a.button {
+            padding: .5rem .75rem;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-size: .9rem;
+        }
+
+        .muted-link {
+            color: var(--muted);
+            font-size: .9rem;
+            text-decoration: none;
+        }
+
+        .note {
+            margin-top: .5rem;
+            color: #9ca3af;
+            font-size: .85rem;
+        }
+
+        .share {
+            color: var(--muted);
+            font-size: .95rem;
+        }
+
+        footer {
+            margin-top: 1.5rem;
+            color: var(--muted);
+            font-size: .8rem;
+        }
+    </style>
+    <script>
+        function getParam(name) {
+            try { return new URLSearchParams(location.search).get(name) || ''; }
+            catch (e) { return ''; }
+        }
+
+        function hasParam(name) {
+            try { return new URLSearchParams(location.search).has(name); }
+            catch (e) { return false; }
+        }
+
+        function sanitizeName(str) {
+            const entityMap = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            };
+            return String(str).replace(/[&<>"']/g, function (match) {
+                return entityMap[match];
+            });
+        }
+
+        function initials(name) {
+            if (!name) return 'YOU';
+            const parts = name.split(/\s+/).filter(Boolean);
+            if (parts.length === 0) return 'YOU';
+            if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+            return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+        }
+
+        function render() {
+            if (hasParam('name')){
+                name = sanitizeName(getParam('name'));
+            }
+            const display = name || 'Your Name Here';
+            const elName = document.getElementById('name');
+            const elAvatar = document.getElementById('avatar');
+            elName.innerHTML = display;
+            elAvatar.innerHTML = initials(display);
+            const port = parseInt(window.location.port);
+            const link = document.getElementById('link');
+            link.href = `${window.location.protocol}//${window.location.hostname}:${port+1}/my-name`;
+        }
+
+        window.addEventListener('DOMContentLoaded', render);
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="panel">
+            <div class="card" role="region" aria-label="Namecard preview">
+                <div class="avatar" id="avatar">YOU</div>
+                <div class="name" id="name">Your Name Here</div>
+            </div>
+        </div>
+
+        <div class="share">
+            Share your namecards&nbsp;<a id="link">here!</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

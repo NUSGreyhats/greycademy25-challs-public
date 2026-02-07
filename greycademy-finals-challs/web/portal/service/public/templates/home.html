@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Network Portal{% endblock %}
+
+{% block content %}
+<div class="card" style="text-align: center;">
+    <h2>Welcome</h2>
+    <p style="color: #94a3b8; margin-bottom: 30px;">
+        Sign in to access the network scanner.
+    </p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <a href="/login" style="text-decoration: none;">
+            <button class="btn">Login</button>
+        </a>
+        <a href="/register" style="text-decoration: none;">
+            <button class="btn btn-secondary">Register</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

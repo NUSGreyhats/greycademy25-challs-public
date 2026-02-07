@@ -1,0 +1,12 @@
+LOAD Six
+STORE Seven
+MOV sIx
+ADD sEven
+SUB siX
+MUL seVen
+MOD SIx
+XOR sevEn
+READC SIX
+PUTS seveN
+JNZ  SEven
+HALT sevEN

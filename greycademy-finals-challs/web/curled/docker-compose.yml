@@ -1,0 +1,8 @@
+services:
+  web:
+    build: service
+    environment:
+      - FLAG=grey{curl_th3_fl4g!}
+    ports:
+      - "31006:3000"
+    restart: unless-stopped

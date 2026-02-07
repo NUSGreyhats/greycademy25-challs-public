@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Dashboard</h2>
+
+    <div style="background: #0f172a; padding: 15px; border-radius: 6px; margin-bottom: 24px;">
+        <p style="color: #94a3b8;">
+            Logged in as <strong style="color: #e2e8f0;">{{ username }}</strong>
+            {% if role == 'admin' %}<span style="color: #3b82f6;"> (Admin)</span>{% endif %}
+        </p>
+    </div>
+
+    {% if role == 'admin' %}
+    <div style="margin-bottom: 24px;">
+        <h3 style="color: #e2e8f0; font-size: 1.1em; margin-bottom: 12px;">URL Scanner</h3>
+        <form method="POST" action="/dashboard" style="display: flex; gap: 10px;">
+            <input type="text" name="target_url" placeholder="https://example.com"
+                   style="flex: 1; padding: 12px; background: #0f172a; border: 1px solid #334155; color: #e2e8f0; border-radius: 6px;">
+            <button type="submit" class="btn" style="width: auto; padding: 12px 24px;">Scan</button>
+        </form>
+
+    
+        {% if content %}
+        <div style="margin-top: 15px; padding: 15px; background: #0f172a; border-radius: 6px; border: 1px solid #334155;">
+            <p style="color: #94a3b8; font-size: 0.85em; margin-bottom: 10px;">Response:</p>
+            <pre style="color: #e2e8f0; white-space: pre-wrap; word-wrap: break-word; font-size: 0.9em;">{{ content }}</pre>
+        </div>
+        {% endif %}
+    </div>
+    {% else %}
+    <div style="padding: 20px; background: #0f172a; border-radius: 6px; text-align: center;">
+        <p style="color: #64748b;">URL Scanner requires admin access.</p>
+    </div>
+    {% endif %}
+
+    <form method="POST" action="/logout" style="margin-top: 24px;">
+        <button type="submit" class="btn btn-secondary">Logout</button>
+    </form>
+</div>
+{% endblock %}

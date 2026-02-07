@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 or 7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .upload-section {
+            margin-bottom: 30px;
+        }
+
+        .upload-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .drop-zone {
+            border: 3px dashed #667eea;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .drop-zone:hover {
+            background: #e9ecef;
+            border-color: #764ba2;
+        }
+
+        .drop-zone.dragover {
+            background: #e7e5ff;
+            border-color: #667eea;
+            transform: scale(1.02);
+        }
+
+        .drop-zone p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .drop-zone small {
+            color: #999;
+            display: block;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .file-input-wrapper {
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .results-section {
+            display: none;
+        }
+
+        .results-section.show {
+            display: block;
+        }
+
+        .result-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .result-item.success {
+            border-left-color: #28a745;
+        }
+
+        .result-item.error {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .result-filename {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .prediction-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+
+        .prediction-badge.success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .prediction-badge.error {
+            background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+        }
+
+        .confidence {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .confidence strong {
+            color: #333;
+        }
+
+        .prob-item {
+            background: white;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .prob-digit {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #667eea;
+            min-width: 60px;
+        }
+
+        .prob-bar {
+            background: #e9ecef;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .prob-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+            background: linear-gradient(90deg, #ffd54d 0%, #ffc107 100%);
+        }
+
+        /* Layout for result body and image preview */
+        .probabilities {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .result-body {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .result-body .probabilities { flex: 1; min-width: 0; }
+        .result-body .image-preview { flex: 0 0 auto; }
+
+        .image-preview img {
+            width: 96px;
+            height: 96px;
+            object-fit: contain;
+            background: white;
+            padding: 8px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .no-thumb {
+            width: 96px;
+            height: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafafa;
+            color: #999;
+            font-size: 0.85em;
+            border: 1px dashed #eee;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .result-body { flex-direction: column; align-items: flex-start; }
+            .image-preview img { width: 120px; height: 120px; }
+        }
+
+        /* Colors per digit */
+        .prob-item.digit-6 .prob-fill {
+            background: linear-gradient(90deg, #2b6cb0 0%, #4299e1 100%); /* blue */
+        }
+        .prob-item.digit-7 .prob-fill {
+            background: linear-gradient(90deg, #dc3545 0%, #e74c3c 100%); /* red */
+        }
+
+        .prob-digit.digit-6 { color: #2b6cb0; }
+        .prob-digit.digit-7 { color: #dc3545; }
+
+        .prediction-badge.digit-6 {
+            background: linear-gradient(135deg, #2b6cb0 0%, #4299e1 100%);
+        }
+        .prediction-badge.digit-7 {
+            background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+        }
+
+        .result-item.pred-6 { border-left-color: #2b6cb0; }
+        .result-item.pred-7 { border-left-color: #dc3545; }
+
+        .prob-value {
+            font-size: 0.85em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        .success-message {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .status-text {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+        }
+
+        .empty-state p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .probabilities {
+                grid-template-columns: 1fr;
+            }
+
+            .result-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><img src="/static/six2.png"> or <img src="/static/seven2.png"> </h1>
+            <p>Classify handwritten digits as 6 or 7</p>
+        </div>
+
+        <div class="content">
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <h2>Upload Image or ZIP</h2>
+
+                <div class="drop-zone" id="dropZone">
+                    <p>📁 Drag and drop your file here</p>
+                    <small>or click to select a file</small>
+                </div>
+
+                <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.gif,.zip" />
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading" id="loadingState">
+                <div class="spinner"></div>
+                <div class="status-text">Processing your image...</div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <h2>Results</h2>
+                <div id="resultsList"></div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState">
+                <p>👆 Upload an image to get started</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Session management with localStorage
+        let currentToken = null;
+
+        function initializeSession() {
+            // Try to get token from localStorage
+            const storedToken = localStorage.getItem('mnistSessionToken');
+            if (storedToken) {
+                currentToken = storedToken;
+                loadPreviousResults();
+            } else {
+                // Create new session
+                createNewSession();
+            }
+        }
+
+        async function createNewSession() {
+            try {
+                const response = await fetch('/api/session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    currentToken = data.token;
+                    // Store token in localStorage
+                    localStorage.setItem('mnistSessionToken', currentToken);
+                    loadPreviousResults();
+                } else {
+                    console.error('Error creating session: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Drag and drop
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+
+        dropZone.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        async function handleFiles(files) {
+            if (!files.length) return;
+
+            const file = files[0];
+
+            // Show loading
+            document.getElementById('loadingState').classList.add('show');
+            document.getElementById('emptyState').style.display = 'none';
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                // 1) Upload file(s) and get saved filenames
+                const uploadResp = await fetch(`/api/upload/${currentToken}`, {
+                    method: 'POST',
+                    body: formData
+                });
+                const uploadData = await uploadResp.json();
+                document.getElementById('loadingState').classList.remove('show');
+
+                if (!uploadData.success) {
+                    displayError(uploadData.error || 'Upload failed');
+                    return;
+                }
+
+                const filenames = uploadData.filenames || [];
+                if (!filenames.length) {
+                    displayError('No images saved from upload');
+                    return;
+                }
+
+                // 2) Request predictions for the saved filenames
+                const predictResp = await fetch(`/api/predict/${currentToken}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ filenames })
+                });
+
+                const predictData = await predictResp.json();
+                if (predictData.success && Array.isArray(predictData.results)) {
+                    // Clear previous results for these files
+                    filenames.forEach(fn => {
+                        // No-op; we simply prepend new results
+                    });
+
+                    predictData.results.forEach(r => {
+                        if (r.error) {
+                            displayError(`${r.filename}: ${r.error}`);
+                        } else {
+                            displayResult(r);
+                        }
+                    });
+                } else {
+                    displayError(predictData.error || 'Prediction failed');
+                }
+
+                // Load updated results (refresh view of all images)
+                loadPreviousResults();
+            } catch (error) {
+                document.getElementById('loadingState').classList.remove('show');
+                console.error('Error:', error);
+                displayError('Error uploading file: ' + error.message);
+            }
+        }
+
+        function displayResult(result) {
+            document.getElementById('resultsSection').classList.add('show');
+
+            const resultsList = document.getElementById('resultsList');
+            // Normalize prediction to string and determine digit class
+            const pred = String(result.prediction);
+            const predWord = pred === '6' ? 'Six' : 'Seven';
+            const isSix = pred === '6';
+            const predClass = isSix ? 'pred-6' : 'pred-7';
+            const resultHTML = `
+                <div class="result-item ${predClass}">
+                    <div class="result-header">
+                        <span class="result-filename">${escapeHtml(result.filename)}</span>
+                    </div>
+                    <div class="result-body">
+                        <div class="probabilities">
+                            <div class="prob-item digit-${pred}">
+                                <div class="prob-digit digit-${pred}">${predWord}</div>
+                                <div class="prob-bar">
+                                    <div class="prob-fill" style="width: ${result['confidence'] * 100}%"></div>
+                                </div>
+                                <div class="prob-value">${(result['confidence'] * 100).toFixed(1)}%</div>
+                            </div>
+
+                        </div>
+                        <div class="image-preview">
+                            ${result.thumbnail ? `<img src="/api/session/${currentToken}/thumbnails/${encodeURIComponent(result.thumbnail)}" alt="Preview" />` : `<div class="no-thumb">No preview</div>`}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            resultsList.innerHTML = resultHTML + resultsList.innerHTML;
+        }
+
+        function displayError(error) {
+            document.getElementById('resultsSection').classList.add('show');
+            const resultsList = document.getElementById('resultsList');
+
+            const errorHTML = `
+                <div class="result-item error">
+                    <div class="result-header">
+                        <span class="error-message">❌ Error</span>
+                    </div>
+                    <p>${escapeHtml(error)}</p>
+                </div>
+            `;
+
+            resultsList.innerHTML = errorHTML + resultsList.innerHTML;
+        }
+
+        async function loadPreviousResults() {
+            try {
+                const response = await fetch(`/api/session/${currentToken}/images`);
+                const data = await response.json();
+
+                const resultsList = document.getElementById('resultsList');
+                resultsList.innerHTML = '';
+
+                if (data.images && data.images.length > 0) {
+                    document.getElementById('resultsSection').classList.add('show');
+                    document.getElementById('emptyState').style.display = 'none';
+
+                    // Request predictions for existing images
+                    const predictResp = await fetch(`/api/predict/${currentToken}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ filenames: data.images })
+                    });
+                    const predictData = await predictResp.json();
+                    if (predictData.success && Array.isArray(predictData.results)) {
+                        predictData.results.forEach(r => {
+                            if (r.error) {
+                                displayError(`${r.filename}: ${r.error}`);
+                            } else {
+                                displayResult(r);
+                            }
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading previous results:', error);
+            }
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', initializeSession);
+    </script>
+</body>
+</html>

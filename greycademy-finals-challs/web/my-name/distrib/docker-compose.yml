@@ -1,0 +1,13 @@
+services:
+  challenge:
+    build: ./service/app
+    ports:
+      - "31001:8080"
+    depends_on:
+      - admin-bot
+
+  admin-bot:
+    privileged: true
+    build: ./service/bot
+    ports:
+      - "31002:8080"

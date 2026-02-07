@@ -1,0 +1,9 @@
+services:
+  misc-lpmc:
+    container_name: forensics-hideeee-and-seeek
+    build: service
+    # privileged: true
+    read_only: true
+    ports:
+      - 32000:32000
+

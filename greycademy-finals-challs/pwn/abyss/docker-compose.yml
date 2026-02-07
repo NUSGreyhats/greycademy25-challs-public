@@ -1,0 +1,7 @@
+services:
+  challenge:
+    container_name: pwn-abyss
+    build: service
+    privileged: true
+    ports:
+        - 30001:5000

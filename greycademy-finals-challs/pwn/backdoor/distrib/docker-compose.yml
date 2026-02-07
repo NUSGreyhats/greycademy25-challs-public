@@ -1,0 +1,7 @@
+services:
+  challenge:
+    container_name: pwn-backdoor
+    build: .
+    privileged: true
+    ports:
+        - 30003:5000

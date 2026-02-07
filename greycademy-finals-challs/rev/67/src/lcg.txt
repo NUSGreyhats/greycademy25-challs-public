@@ -1,0 +1,20 @@
+# LCG start
+# Load [13] (state)
+MOV seven 7
+ADD seven 6
+LOAD six seven
+MOV seven 6
+ADD seven 6
+LOAD seven seven
+# Multily with 67 ([12])
+MUL six seven
+MOV seven 7
+ADD seven 7
+LOAD seven seven
+# Add 86 ([14])
+ADD six seven
+MOV seven 7
+ADD seven 6
+# Store result back
+STORE seven six
+# LCG end

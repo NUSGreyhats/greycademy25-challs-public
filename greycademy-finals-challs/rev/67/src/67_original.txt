@@ -1,0 +1,155 @@
+# Store [6] = 1
+SUB seven 6
+STORE 6 seven
+# Store [7] = 10
+SUB six seven
+ADD six six
+STORE 7 six
+# Store [12] (multiplier) = 67
+MOV seven, 6
+MUL six seven
+ADD six 7
+MOV seven 6
+ADD seven 6
+STORE seven six
+# Store [13] (state) = 76
+LOAD seven 6
+SUB six seven
+LOAD seven 7
+ADD six seven
+MOV seven 7
+ADD seven 6
+STORE seven six
+# Store [14] = 86
+LOAD seven 7
+ADD six seven
+MOV seven 7
+ADD seven 7
+STORE seven six
+# Print flag
+MOV seven 7
+MUL seven 7
+MUL seven 7
+# Initialize input start = 7*7 = 49
+PUTS seven
+MOV six 7
+MUL six six
+# Initialize input end = 49 + 67 = 116
+MOV seven 6
+ADD seven 6
+LOAD seven seven
+ADD seven six
+# Store it into [7] for quick access
+STORE 7 seven
+# Start read input
+MOV six 7
+MUL six six
+# JUMP TARGET 0
+READC six
+# Increment six
+LOAD seven 6
+ADD six seven
+# Check max length
+LOAD seven 7
+# Loop (JUMP TARGET 0)
+JNZ 47
+MOV six 7
+MUL six six
+# Store [6] = 49 (input start)
+STORE 6 six
+MOV six 7
+ADD six 6
+MOV seven 7
+SUB seven 6
+# Store [1] = 13
+STORE seven six
+LOAD six 7
+MOV seven 6
+ADD seven seven
+LOAD seven seven
+ADD six seven
+MOV seven 7
+SUB seven seven
+STORE seven six
+# JUMP TARGET 1
+# LCG start
+# Load [13] (state)
+MOV seven 7
+ADD seven 6
+LOAD six seven
+MOV seven 6
+ADD seven 6
+LOAD seven seven
+# Multily with 67 ([12])
+MUL six seven
+MOV seven 7
+ADD seven 7
+LOAD seven seven
+# Add 86 ([14])
+ADD six seven
+MOV seven 7
+ADD seven 6
+# Store result back
+STORE seven six
+# LCG end
+MOV seven 7
+SUB seven 6
+LOAD seven seven
+LOAD six 6
+ADD six seven
+# Load user input
+LOAD six six
+# Load XOR key from LCG
+MOV seven 7
+ADD seven 6
+LOAD seven seven
+XOR six seven
+# Load expected
+LOAD seven 7
+LOAD seven seven
+# Jump target 2
+JNZ 148
+# Load input idx
+MOV seven 7
+SUB seven 6
+LOAD six seven
+# Multiply with 13
+MOV seven 7
+ADD seven 6
+MUL six seven
+# Mod 67
+MOV seven 6
+ADD seven seven
+LOAD seven seven
+MOD six seven
+# Store it back
+MOV seven 7
+SUB seven 6
+STORE seven six
+# Increment expected value counter
+LOAD six 7
+MOV seven 7
+SUB seven 6
+ADD six seven
+STORE 7 six
+# Check against end of expected
+MOV seven 7
+SUB seven seven
+LOAD seven seven
+JNZ 74
+# print Correct!
+MOV six 7
+MUL six six
+MUL six 7
+ADD six 7
+ADD six 7
+PUTS six
+HALT
+# JUMP TARGET 2
+# print nope
+MOV six 7
+MUL six six
+MUL six 7
+ADD six 7
+PUTS six
+HALT

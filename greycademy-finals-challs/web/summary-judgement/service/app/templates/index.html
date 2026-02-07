@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Give me your blog posts</h1>
+  <p>I love reading them!</p>
+  <form action="/send" method="post">
+    <input name="url" type="url" placeholder="https://example.com" required>
+    <button type="submit">Send</button>
+  </form>
+{% endblock %}

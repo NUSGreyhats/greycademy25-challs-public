@@ -1,0 +1,8 @@
+services:
+  web:
+    build: service
+    ports:
+      - "31003:5000"
+    environment:
+      - FLASK_ENV=production
+    restart: unless-stopped

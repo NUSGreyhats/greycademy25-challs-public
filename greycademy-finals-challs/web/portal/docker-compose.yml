@@ -1,0 +1,30 @@
+services:
+  mysql:
+    image: mariadb:10.11
+    env_file: ./service/.env
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb -u$${MYSQL_USER} -p$${MYSQL_PASSWORD} -e 'SELECT 1' || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks:
+      - backend
+
+  app:
+    build: ./service
+    env_file: ./service/.env
+    ports:
+      - "31004:3000"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
